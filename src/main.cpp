@@ -3,7 +3,7 @@
 
 int main()
 {
-    const uint32_t maxDisplays = 10; // ? constexpr vs const
+    constexpr uint32_t maxDisplays = 10; // ? constexpr vs const
     CGDirectDisplayID displays[maxDisplays];
     uint32_t displayCount = 0; // ? uint32_t vs int vs size_t
 
@@ -15,6 +15,10 @@ int main()
     }
 
     std::cout << "Number of displays: " << displayCount << std::endl;
+    for (uint32_t i = 0; i < displayCount; i++)
+    {
+        std::cout << "Display ID: " << displays[i] << std::endl;
+    }
 
     return 0;
 }

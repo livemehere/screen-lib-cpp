@@ -1,5 +1,10 @@
 # screen lib cpp
 
 ```bash
-clang++ -std=c++17 -framework ApplicationServices ./src/main.cpp -o ./dist/out && ./dist/out
+clang++ ./src/main.cpp ./src/clipboard.mm -o ./dist/out \
+    -std=c++17 \
+    -framework AppKit \
+    -framework Foundation \
+    -framework CoreGraphics \
+    -framework ImageIO
 ```

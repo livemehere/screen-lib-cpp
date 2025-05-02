@@ -9,6 +9,7 @@
 #include <ApplicationServices/ApplicationServices.h>
 
 #include "clipboard.h"
+#include "overlay.h"
 
 #ifndef kUTTypePNG
 #define kUTTypePNG CFSTR("public.png")
@@ -60,7 +61,8 @@ int main()
     for (uint32_t i = 0; i < displayIds.size(); i++)
     {
         CGDirectDisplayID display = displayIds[i];
-        CGRect cropRect = CGRectMake(0, 0, 300, 300);
+        // CGRect cropRect = CGRectMake(1000, 1000, 500, 500);
+        CGRect cropRect = getUserSelectedRect();
 
         CGImageRef croppedImg = getDisplayImage(display, cropRect);
 

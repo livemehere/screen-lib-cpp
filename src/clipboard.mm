@@ -3,19 +3,17 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import "clipboard.h"
 
-extern "C" {
-    void copyCGImageToClipboardAsPNG(CGImageRef image) {
-        if (!image) return;
+void copyCGImageToClipboardAsPNG(CGImageRef image) {
+    if (!image) return;
 
-        NSBitmapImageRep* bitmapRep = [[NSBitmapImageRep alloc] initWithCGImage:image];
-        NSData* pngData = [bitmapRep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
+    NSBitmapImageRep* bitmapRep = [[NSBitmapImageRep alloc] initWithCGImage:image];
+    NSData* pngData = [bitmapRep representationUsingType:NSBitmapImageFileTypePNG properties:@{}];
 
-        if (!pngData) return;
+    if (!pngData) return;
 
-        NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
-        [pasteboard clearContents];
-        [pasteboard setData:pngData forType:NSPasteboardTypePNG];
+    NSPasteboard* pasteboard = [NSPasteboard generalPasteboard];
+    [pasteboard clearContents];
+    [pasteboard setData:pngData forType:NSPasteboardTypePNG];
 
-        NSLog(@"✅ Image copied to clipboard as PNG.");
-    }
+    NSLog(@"✅ Image copied to clipboard as PNG.");
 }

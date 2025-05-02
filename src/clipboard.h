@@ -1,7 +1,4 @@
 #pragma once
 
-extern "C"
-{
 #include <CoreGraphics/CoreGraphics.h>
-    void copyCGImageToClipboardAsPNG(CGImageRef image);
-}
+void copyCGImageToClipboardAsPNG(CGImageRef image);
